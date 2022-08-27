@@ -1,4 +1,5 @@
 ﻿<?php
+include('./api/base.php');
 $do = ($_GET['do'])??'main';
 ?>
 <!DOCTYPE html
@@ -23,7 +24,17 @@ $do = ($_GET['do'])??'main';
             <a href="./index.php">首頁</a>
             <a href="?do=order">線上訂票</a>
             <a href="#">會員系統</a>
-            <a href="./back.php">管理系統</a>
+            <?php
+            if(isset($_SESSION['admin'])){
+            ?>
+              <a href="./back.php">管理系統</a>
+              <?php
+            }else{
+              ?>
+              <a href="?do=login">登入管理</a>
+            <?php
+            }
+            ?>
         </div>
 
         <div id="text">

@@ -20,10 +20,11 @@
         let pw = $('#pw').val();
 
         $.get('./api/login.php',{acc,pw},(res)=>{
+            console.log(res);
             if(parseInt(res) == 1){
-
+                location.href='./back.php';
             }else{
-                
+                alert('帳號或密碼錯誤');
             }
         })
     }
