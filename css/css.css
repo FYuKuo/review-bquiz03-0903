@@ -224,3 +224,41 @@ input:focus
 .my-10{
 	margin: 10px 0;
 }
+
+.d-f {
+	display: flex;
+}
+
+.j-c {
+	justify-content: center;
+}
+
+.a-c {
+	align-items: center;
+}
+
+.table_bg {
+	background-color: #eee;
+	padding: 5px;
+}
+
+.mytitle {
+	padding: 5px;
+	font-size: 18px;
+	margin: 5px 0 ;
+}
+
+.tr_bg {
+	background-color: #ccc;
+}
+
+.list_group {
+	height: 200px;
+	overflow: auto;
+}
+
+.list_bg {
+	margin: 2px 0;
+	background-color: white;
+	height: 80px;
+}

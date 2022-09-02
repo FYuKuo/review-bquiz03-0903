@@ -34,7 +34,9 @@ class DB
         if(isset($arg[1])){
             $sql .= $arg[1];
         }
-        $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+
+        // echo $sql;
+        return $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function find($id)
@@ -52,7 +54,7 @@ class DB
                 $sql .= " WHERE `id` = '$id' ";
             }
         
-        $this->pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
+        return $this->pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
     }
 
 
@@ -71,7 +73,7 @@ class DB
                 $sql .= " WHERE `id` = '$id' ";
             }
         
-        $this->pdo->exec($sql);
+        return $this->pdo->exec($sql);
     }
 
 
@@ -80,7 +82,7 @@ class DB
 
         if(isset($array['id'])){
             
-            foreach ($array['id'] as $key => $value) {
+            foreach ($array as $key => $value) {
 
                 if($key != 'id'){
                     $tmp[] = " `$key` = '$value' ";
@@ -97,7 +99,7 @@ class DB
             $sql = "INSERT INTO `$this->table` (`$col`) VALUES ('$val')";
         }
         
-        $this->pdo->exec($sql);
+        return $this->pdo->exec($sql);
     }
 
 
@@ -122,7 +124,7 @@ class DB
         if(isset($arg[1])){
             $sql .= $arg[1];
         }
-        $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+        return $this->pdo->query($sql)->fetchColumn();
     }
 }
 
@@ -139,4 +141,8 @@ function to($url)
 {
     header("location:$url");
 }
+
+$Poster = new DB('poster');
+$Order = new DB('order');
+$Movie = new DB('movie');
 ?>
