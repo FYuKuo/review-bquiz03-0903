@@ -28,8 +28,8 @@
                     <input type="text" name="name[]" id="name" value="<?=$row['name']?>">
                 </div>
                 <div style="width: 25%;">
-                    <input type="button" value="往上" onclick="rank(<?=$row['id']?>,<?=$pre?>)">
-                    <input type="button" value="往下" onclick="rank(<?=$row['id']?>,<?=$next?>)">
+                    <input type="button" value="往上" onclick="rank(<?=$row['id']?>,<?=$pre?>,'<?=$_GET['do']?>')">
+                    <input type="button" value="往下" onclick="rank(<?=$row['id']?>,<?=$next?>,'<?=$_GET['do']?>')">
                 </div>
                 <div style="width: 25%;">
                 <input type="hidden" name="id[]" value="<?=$row['id']?>">
@@ -80,11 +80,3 @@
     </form>
 
 </div>
-
-<script>
-    function rank(id,chId){
-        $.post('./api/rank.php',{id,chId},()=>{
-            location.reload();
-        })
-    }
-</script>

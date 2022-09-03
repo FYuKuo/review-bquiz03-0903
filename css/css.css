@@ -215,6 +215,9 @@ input:focus
 .w-30{
 	width: 30%;
 }
+.w-33{
+	width: 33%;
+}
 .w-20{
 	width: 20%;
 }
@@ -261,4 +264,25 @@ input:focus
 	margin: 2px 0;
 	background-color: white;
 	height: 80px;
+}
+
+.movie_list_group {
+	/* background-color: white; */
+	height: 440px;
+	overflow: auto;
+
+}
+
+.movie_list_bg {
+	margin: 5px 0;
+	background-color: white;
+	height: 120px;
+}
+
+.f-w {
+	flex-wrap: wrap;
+}
+
+.p-10 {
+	padding: 10px;
 }
