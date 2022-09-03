@@ -332,3 +332,13 @@ input:focus
 .emptySet {
 	background-image: url(../icon/03D03.png);
 }
+
+.b-c {
+	border-collapse: collapse;
+}
+
+
+.order_list {
+	height: 360px;
+	overflow: auto;
+}

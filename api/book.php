@@ -1,10 +1,25 @@
 <?php
-include('./base.php')
+include('./base.php');
+$orders = $Order->all(['movie'=>$_GET['movie'],'session'=>$_GET['session'],'date'=>$_GET['date']]);
+$set = [];
+foreach ($orders as $key => $order) {
+    $order['set'] = unserialize($order['set']);
+    $set = array_merge($set,$order['set']);
+}
 ?>
 <div class="d-f book_set_bg m-auto f-w">
     <div class="book_set d-f m-auto f-w">
         <?php
     for($i=0 ; $i<20 ; $i++) {
+        if(in_array($i,$set)){
+        ?>
+        <div class="set_item d-f f-w emptySet">
+            <div class="ct w-100">
+                <?=floor($i/5)+1?>排<?=floor($i%5)+1?>號
+            </div>
+        </div>
+        <?php
+        }else{
     ?>
         <div class="set_item d-f f-w">
             <div class="ct w-100">
@@ -13,6 +28,7 @@ include('./base.php')
             <input type="checkbox" name="set" class="set" value="<?=$i?>" style="align-self: end;">
         </div>
         <?php
+        }
     }
     ?>
 
