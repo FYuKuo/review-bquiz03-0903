@@ -46,7 +46,9 @@ $rows = $Poster->all(['sh'=>1]," ORDER BY `rank`");
     <div class="rb tab" style="width:95%;">
         <div class="d-f f-w">
             <?php
-            $num = $Movie->math('COUNT','id',['sh'=>1]);
+            $now = date('Y-m-d');
+            $pre = date('Y-m-d',strtotime('-3 days'));
+            $num = $Movie->math('COUNT','id'," WHERE `sh` = 1 AND `date` BETWEEN '$pre' AND '$now' ORDER BY `rank` ");
             $limit = 4;
             $pages = ceil($num/$limit);
             $page = ($_GET['page'])??1;
@@ -55,8 +57,6 @@ $rows = $Poster->all(['sh'=>1]," ORDER BY `rank`");
             }
             $start = ($page-1)*$limit;
             $limitSql = " Limit $start,$limit";
-            $now = date('Y-m-d');
-            $pre = date('Y-m-d',strtotime('-3 days'));
             $movies = $Movie->all(" WHERE `sh` = 1 AND `date` BETWEEN '$pre' AND '$now' ORDER BY `rank` ".$limitSql);
             foreach ($movies as $key => $movie) {
                 switch ($movie['type']) {
