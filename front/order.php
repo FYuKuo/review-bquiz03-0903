@@ -46,6 +46,7 @@ $selectID = ($_GET['id'])??0;
 
 
 <script>
+
     getMovie();
 
     function getMovie(){
@@ -109,9 +110,42 @@ $selectID = ($_GET['id'])??0;
 
         $.get('./api/book.php',{movie,date,session},(res)=>{
             $('.book').html(res);
+            setEvents();
         })
         
     }
 
+    let setArr = new Array();
+
+    function setEvents(){
+        
+        
+            $('.set').on('change',function() {
+            
+                if($(this).prop('checked') == true){
+        
+                    if(setArr.length < 4){
+                        setArr.push($(this).val());
+        
+                        $(this).parent().addClass('emptySet');
+                    }else{
+                        alert('最多僅能訂購4張票');
+                        $(this).prop('checked',false);
+                    }
+        
+                }else{
+        
+                    setArr.splice(setArr.indexOf($(this).val()),1);
+                    $(this).parent().removeClass('emptySet');
+        
+                }
+        
+            
+                let num = setArr.length;
+                $('.setnum').text(num);
+                // console.log(setArr);
+            })
+
+    }
 
 </script>

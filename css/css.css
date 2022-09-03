@@ -328,3 +328,7 @@ input:focus
 	background-position: center;
 	justify-content: flex-end;
 }
+
+.emptySet {
+	background-image: url(../icon/03D03.png);
+}
