@@ -84,14 +84,23 @@ sort($movies);
     function del_order(){
         let type = $('.fastDel:checked').val();
         let val ;
+        let text ;
         if(type == 'date'){
             val = $('#date').val();
+            text = $('#date').val();
         }else{
             val = $('#movie').val();
+            text = $('#movie').find('option:selected').text();
         }
 
-        $.post('./api/del_order.php',{type,val},()=>{
-            location.reload();
-        })
+        let anser = confirm(`您確定要刪除 ${text} 的全部資料?`);
+
+        if(anser){
+            $.post('./api/del_order.php',{type,val},()=>{
+                location.reload();
+            })
+
+        }
+
     }
 </script>
