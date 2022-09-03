@@ -188,7 +188,7 @@ input:focus
 }
 
 .m-auto {
-	margin: auto;
+	margin: 0 auto;
 }
 
 .w-100{
@@ -304,4 +304,27 @@ input:focus
 .order_table td {
  border: 1px solid white;
  padding: 10px;
+}
+
+.book_set_bg {
+	background-image: url(../icon/03D04.png);
+	background-repeat: no-repeat;
+	background-size: auto;
+	height: 370px;
+	width: 540px;
+}
+
+.book_set {
+	width: 318px;
+	height: 342px;
+	margin-top: 17px;
+}
+.set_item {
+	width: calc(318px / 5);
+	height: calc(345px / 4);
+	background-image: url(../icon/03D02.png);
+	background-repeat: no-repeat;
+	background-size: auto;
+	background-position: center;
+	justify-content: flex-end;
 }
