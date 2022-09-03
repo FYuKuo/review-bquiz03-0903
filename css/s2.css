@@ -1,13 +1,72 @@
 @charset "utf-8";
 /* CSS Document */
 
-	#abgne-block-20111227 {
+.poster {
 	width: 420px;
 	height: 400px;
 	position: relative;
-	overflow: hidden;
+	/* overflow: hidden; */
 }
-#abgne-block-20111227 ul, #abgne-block-20111227 ul li {
+
+.lists {
+	height: 70%;
+	overflow: hidden;
+	text-align: center;
+	position: relative;
+}
+
+.poster_item {
+	width: fit-content;
+	position: absolute;
+	height: 100%;
+	display: none;
+}
+
+.lists img {
+	height: 90%;
+}
+
+.controls {
+	height: 30%;
+}
+
+.controls_nav {
+	width: 90%;
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+}
+
+.controls_img {
+	position: absolute;
+}
+
+
+.img_item {
+	height: 82px;
+	margin: 0 5px;
+	cursor: pointer;
+}
+
+.next_btn,.pre_btn {
+	border-width: 20px 20px 20px 20px;
+	border-style: solid;
+	height: 20px;
+	cursor: pointer;
+
+}
+
+.next_btn {
+	border-color: transparent transparent transparent black;
+}
+.pre_btn {
+	border-color: transparent black transparent transparent;
+}
+
+
+
+
+/* #abgne-block-20111227 ul, #abgne-block-20111227 ul li {
 	margin: 0;
 	padding: 0;
 	list-style: none;
@@ -32,10 +91,10 @@
 }
 #abgne-block-20111227 .controls li {
 	float: left;
-}
-#abgne-block-20111227 .controls li a {
+} */
+/* #abgne-block-20111227 .controls li a {
 	display: block;
-	width: 44px;	/* 寬度會影響未放大前顯示的字數 */
+	width: 44px;	寬度會影響未放大前顯示的字數
 	height: 35px;
 	line-height: 35px;
 	margin-right: 1px;
@@ -46,4 +105,4 @@
 }
 #abgne-block-20111227 .controls li.selected a {
 	background: #87bf00;
-}
+} */

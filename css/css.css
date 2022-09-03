@@ -286,3 +286,22 @@ input:focus
 .p-10 {
 	padding: 10px;
 }
+
+.bb {
+	box-sizing: border-box;
+}
+
+.page a {
+	text-decoration: none;
+	color: white;
+}
+
+.nowPage {
+	font-size: 1.5rem;
+
+}
+
+.order_table td {
+ border: 1px solid white;
+ padding: 10px;
+}
