@@ -14,9 +14,11 @@
 
 
             <?php
-            $rows = $Poster->all();
+            $rows = $Poster->all(" ORDER BY `rank` ASC");
 
             foreach ($rows as $key => $row) {
+                $pre = (isset($rows[$key-1]['id']))?$rows[$key-1]['id']:$row['id'];
+                $next = (isset($rows[$key+1]['id']))?$rows[$key+1]['id']:$row['id'];
             ?>
             <div class="list_bg d-f a-c">
                 <div style="width: 25%;">
@@ -26,8 +28,8 @@
                     <input type="text" name="name[]" id="name" value="<?=$row['name']?>">
                 </div>
                 <div style="width: 25%;">
-                    <input type="button" value="往上">
-                    <input type="button" value="往下">
+                    <input type="button" value="往上" onclick="rank(<?=$row['id']?>,<?=$pre?>)">
+                    <input type="button" value="往下" onclick="rank(<?=$row['id']?>,<?=$next?>)">
                 </div>
                 <div style="width: 25%;">
                 <input type="hidden" name="id[]" value="<?=$row['id']?>">
@@ -78,3 +80,11 @@
     </form>
 
 </div>
+
+<script>
+    function rank(id,chId){
+        $.post('./api/rank.php',{id,chId},()=>{
+            location.reload();
+        })
+    }
+</script>
